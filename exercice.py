@@ -5,33 +5,96 @@
 def order(values: list = None) -> list:
     if values is None:
         # TODO: demander les valeurs ici
-        pass
+        liste=[]
+        compteur=0
+        while compteur<2:
+            liste.append(input('Entrer une donné : '))
+            compteur+=1
 
-    return []
+    liste.sort()
+
+    return liste
 
 
 def anagrams(words: list = None) -> bool:
     if words is None:
         # TODO: demander les mots ici
-        pass
+        mot1_list=[]
+        mot2_list=[]
+
+        mot1=input('premier mot : ')
+
+        for letter in mot1:
+            mot1_list+=letter
+        
+        mot1_list.sort()
+
+        mot2=input('2e mot : ')
+
+        for letter in mot2:
+            mot2_list+=letter
+ 
+        mot2_list.sort()
+        
+
+        if mot1_list == mot2_list:
+            return True
 
     return False
 
 
 def contains_doubles(items: list) -> bool:
+    for chiffre in items:
+        if items.count(chiffre)>1:
+            return True
+
+
     return False
 
 
 def best_grades(student_grades: dict) -> dict:
     # TODO: Retourner un dictionnaire contenant le nom de l'étudiant ayant la meilleure moyenne ainsi que sa moyenne
-    return {}
+    moyenne=0
+    meilleure_moyenne=0
+    somme=0
+    nombre_notes=0
+
+    for clé in student_grades:
+        
+        list_notes=student_grades[clé]
+        for note in list_notes:
+            somme+=note
+            nombre_notes+=1
+
+        moyenne=somme/nombre_notes
+        if moyenne>meilleure_moyenne:
+            meilleure_moyenne=moyenne
+            meilleure_etudient=[]
+            meilleur_etudiant={clé : meilleure_moyenne}
+
+    return meilleur_etudiant
 
 
 def frequence(sentence: str) -> dict:
     # TODO: Afficher les lettres les plus fréquentes
     #       Retourner le tableau de lettres
+    dict_de_freq=dict()
+    frequences=str()
 
-    return {}
+    for lettres in sentence:
+        if lettres== " ":
+            continue
+        
+        count = sentence.count(lettres)
+        if count>5:
+            dict_de_freq[lettres] =sentence.count(lettres)
+
+    sorted_dict=sorted(dict_de_freq.items(), key=lambda x: x[1], reverse=True)
+
+    for lists in sorted_dict:
+        frequences+="\n"+f"{lists[0]}{lists[1]: >10}"
+
+    return frequences
 
 
 def get_recipes():
@@ -46,10 +109,10 @@ def print_recipe(ingredients) -> None:
 
 def main() -> None:
     print(f"On essaie d'ordonner les valeurs...")
-    order()
+    print(order())
 
     print(f"On vérifie les anagrammes...")
-    anagrams()
+    print(f"les mots sont anagrams {anagrams()}")
 
     my_list = [3, 3, 5, 6, 1, 1]
     print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
@@ -59,7 +122,7 @@ def main() -> None:
     print(f"{list(best_student.keys())[0]} a la meilleure moyenne: {list(best_student.values())[0]}")
 
     sentence = "bonjour, je suis une phrase. je suis compose de beaucoup de lettre. oui oui"
-    frequence(sentence)
+    print(frequence(sentence))
 
     print("On enregistre les recettes...")
     recipes = get_recipes()

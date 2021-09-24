@@ -98,13 +98,51 @@ def frequence(sentence: str) -> dict:
 
 
 def get_recipes():
+    livre_de_recette=dict()
+    liste_ingredient=list()
     # TODO: Demander le nom d'une recette, puis ses ingredients et enregistrer dans une structure de données
-    pass
+    entrer_rectte=input('voulez vous entrer une rectte ? oui (y), non (n)')
+    while entrer_rectte != 'y' and entrer_rectte != 'n':
+        entrer_rectte=input('voulez vous entrer une rectte ? oui (y), non (n)')
+    
+    if entrer_rectte == "y":
+        entrer_rectte=True
+    else :
+        entrer_rectte ==False
+
+
+    while entrer_rectte == True:
+        nom_de_recette = input('quelle est le nom de la recette ? : ')
+        nombre_dingredient=int(input("combien d'ingrédient dans la recette : "))
+        for ingredients in range(nombre_dingredient):
+            nom_de_lingredient=input("entrer l'ingredient de la rectte : ")
+            liste_ingredient.append(nom_de_lingredient)
+
+        livre_de_recette[nom_de_recette]= liste_ingredient
+
+        entrer_rectte = input("entrer une autre rectte ? oui (y), non (n) : ")
+        while entrer_rectte != 'y' and entrer_rectte != 'n':
+            entrer_rectte=input('voulez vous entrer une rectte ? oui (y), non (n)')
+    
+        if entrer_rectte == "y":
+            entrer_rectte=True
+        else :
+            entrer_rectte ==False
+
+    return livre_de_recette
 
 
 def print_recipe(ingredients) -> None:
     # TODO: Demander le nom d'une recette, puis l'afficher si elle existe
-    pass
+    recette_affiche = input("entrer le nom de la rectte a afficher : ")
+
+    for clé in ingredients:
+        if clé == recette_affiche:
+            
+            return f"la rectte de {clé} est : {ingredients[clé]}"
+    
+        else:
+            return "la recette n'est pas dans le livre"
 
 
 def main() -> None:
@@ -128,7 +166,7 @@ def main() -> None:
     recipes = get_recipes()
 
     print("On affiche une recette au choix...")
-    print_recipe(recipes)
+    print(print_recipe(recipes))
 
 
 if __name__ == '__main__':

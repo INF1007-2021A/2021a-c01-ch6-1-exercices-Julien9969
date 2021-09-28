@@ -6,12 +6,15 @@ def order(values: list = None) -> list:
     if values is None:
         # TODO: demander les valeurs ici
         liste=[]
-        compteur=0
-        while compteur<2:
+    
+        while len(liste) < 10:
             liste.append(input('Entrer une donné : '))
-            compteur+=1
 
     liste.sort()
+
+    #num_values = [float(value) for value in values if value.isdigit()]
+    #str_values = [value for value in values if not value.isdigit()]
+    #return sorted(num_values) + sorted(str_values)
 
     return liste
 
@@ -25,14 +28,14 @@ def anagrams(words: list = None) -> bool:
         mot1=input('premier mot : ')
 
         for letter in mot1:
-            mot1_list+=letter
+            mot1_list+=letter.lower()
         
         mot1_list.sort()
 
         mot2=input('2e mot : ')
 
         for letter in mot2:
-            mot2_list+=letter
+            mot2_list+=letter.lower()
  
         mot2_list.sort()
         
@@ -42,6 +45,11 @@ def anagrams(words: list = None) -> bool:
 
     return False
 
+    #return sorted(mot[0].lower) == sorted(mot[1].lower)
+
+
+
+
 
 def contains_doubles(items: list) -> bool:
     for chiffre in items:
@@ -50,7 +58,7 @@ def contains_doubles(items: list) -> bool:
 
 
     return False
-
+    #return len(set(items)) != len(items)
 
 def best_grades(student_grades: dict) -> dict:
     # TODO: Retourner un dictionnaire contenant le nom de l'étudiant ayant la meilleure moyenne ainsi que sa moyenne
@@ -69,7 +77,7 @@ def best_grades(student_grades: dict) -> dict:
         moyenne=somme/nombre_notes
         if moyenne>meilleure_moyenne:
             meilleure_moyenne=moyenne
-            meilleure_etudient=[]
+            #meilleure_etudient=[]
             meilleur_etudiant={clé : meilleure_moyenne}
 
     return meilleur_etudiant

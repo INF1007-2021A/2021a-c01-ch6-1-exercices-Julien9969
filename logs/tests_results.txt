@@ -67,6 +67,6 @@ First differing element 0:
 +   'u': 2}] : Erreur dans les histogrammes
 
 ----------------------------------------------------------------------
-Ran 5 tests in 0.001s
+Ran 5 tests in 0.002s
 
 FAILED (failures=2, errors=1)

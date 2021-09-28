@@ -104,6 +104,7 @@ def frequence(sentence: str) -> dict:
 
     return frequences
 
+#frequences = {letter: sentences.count(letter) for letter in sentence}
 
 def get_recipes():
     livre_de_recette=dict()

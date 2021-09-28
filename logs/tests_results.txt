@@ -12,7 +12,7 @@ Traceback (most recent call last):
     output = [exercice.order(v) for v in values]
   File "test_exercice.py", line 19, in <listcomp>
     output = [exercice.order(v) for v in values]
-  File "/home/runner/work/2021a-c01-ch6-1-exercices-Julien9969/2021a-c01-ch6-1-exercices-Julien9969/exercice.py", line 14, in order
+  File "/home/runner/work/2021a-c01-ch6-1-exercices-Julien9969/2021a-c01-ch6-1-exercices-Julien9969/exercice.py", line 13, in order
     liste.sort()
 UnboundLocalError: local variable 'liste' referenced before assignment
 
